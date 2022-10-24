@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour of DOM</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        .fruits-container li {
+            color: purple;
+        }
+
+        #fruits-title {
+            color: black;
+        }
+
+        .important-places {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to my DOM</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam harum officia laboriosam error laudantium
+            quod, expedita voluptate voluptatibus maxime iure nisi ipsam. Nulla quia sed ipsa, aliquam odit fugit cum!
+        </p>
+    </header>
+    <main id="main-container">
+        <section>
+            <h1>My awesome DOM de baba !!</h1>
+            <ul>
+                <li>Jalali set</li>
+                <li>Shafayet</li>
+                <li>Bonobash</li>
+                <li>Dom de re baba !</li>
+            </ul>
+        </section>
+        <section class="fruits-container">
+            <h1 id="fruits-title" class="some-class random-class yellow-bg">Fruits I Like !!</h1>
+            <ul>
+                <li>Apple</li>
+                <li>Banana</li>
+                <li>Carrot</li>
+            </ul>
+        </section>
+        <section id="places-container" class="large-text">
+            <h1 id="places-title">Places I like to visit</h1>
+            <ul id="places-list">
+                <li class="important-places">Sundorbon</li>
+                <li class="important-places">Bandorbon</li>
+                <li class="important-places">katabon</li>
+                <li class="other-places">Shalbon</li>
+            </ul>
+        </section>
+    </main>
+    <script src="js/dom.js"></script>
+    <script src="js/append.js"></script>
+    <script src="js/styleInJs.js"></script>
+    <script>
+        const student = {
+            name: 'Zahid Juel',
+            id: 211,
+            study: function (time) {
+                console.log(time, 'study kortese...');
+            }
+        }
+        student.study(5);
+        console.log('adding js inside the html file.....');
+
+        //option:1 getElementsByTagName('h1'); // html collection array like object
+        const liCollection = document.getElementsByTagName('li');
+        console.log(liCollection);
+        for (const li of liCollection) {
+            console.log(li.innerText);
+        }
+
+        const allHeading = document.getElementsByTagName('h1');
+        console.log(allHeading);
+        // console.log(allHeading[0].innerText);
+        // console.log(allHeading[1].innerText);
+        for (const h1 of allHeading) {
+            console.log(h1.innerText);
+        }
+
+        // option:2 getElementById('fruits-title'); // will return
+        const fruitsTitle = document.getElementById('fruits-title');
+        fruitsTitle.innerText = 'Fruits changed by JavaScript';
+        // console.log(fruitsTitle.innerText);
+
+        // ooption:3 getElementsByClassName('important-places'); // html collection array like object
+        const places = document.getElementsByClassName('important-places');
+        console.log(places);
+        for (const place of places) {
+            console.log(place.innerText);
+        }
+
+        // one class // html collection Array like Object
+        const otherPlaces = document.getElementsByClassName('other-places');
+        console.log(otherPlaces);
+        for (const otherPlace of otherPlaces) {
+            console.log(otherPlace.innerText);
+            otherPlace.innerText = 'Hatibon/shalbon';
+            // console.log(otherPlace.innerText);
+            otherPlace.style.backgroundColor = 'red';
+        }
+
+        //option 4: querySelectorAll('.fruits-container li'); // nodeList Array like object // use for each loop...
+        const someLi = document.querySelectorAll('.fruits-container li');
+        console.log(someLi);
+        for (const li of someLi) {
+            console.log(li.innerText);
+        }
+
+        // option 5: querySelector('.fruits-container li'); // will return the first one.
+        const firstLi = document.querySelector('.fruits-container li');
+        console.log(firstLi.innerText);
+        firstLi.innerText = 'Apple/Mango';
+        // console.log(firstLi.innerText);
+        firstLi.style.backgroundColor = 'red';
+        // console.log(firstLi.style.backgroundColor);
+        // firstLi.style.display = 'inline-block';
+    </script>
+</body>
+
+</html>

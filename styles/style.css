@@ -1,0 +1,16 @@
+h1 {
+    color: lightcoral;
+}
+
+.blue-bg {
+    background-color: rgb(37, 37, 60) !important;
+    text-align: center;
+}
+
+.blue-bg li {
+    list-style-type: none;
+}
+
+.large-text {
+    font-size: 2em;
+}
